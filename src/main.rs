@@ -28,9 +28,9 @@ fn generate_tree(level: usize, counter: &mut i32) -> NodeRef<i32> {
 fn print_tree<T: Display>(root: &NodeRef<T>, level: usize) {
     match root {
         Some(node) => {
-            print_tree(&node.left, level + 1);
-            println!("{}{}", "  ".repeat(level as usize), node.value);
             print_tree(&node.right, level + 1);
+            println!("{}{}", "   ".repeat(level as usize), node.value);
+            print_tree(&node.left, level + 1);
         }
         None => {}
     }
